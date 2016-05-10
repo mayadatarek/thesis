@@ -22,26 +22,43 @@ public class RankByTrustLevel implements Ranking{
 			for (Review r1 : review){
 			double x = r1.getTrustLevel();
 			if (x == 5.0){
-				weight = (x * r1.getReview())*5;
-				total = total+ weight;
+				if (r1.getDistance() == 1){
+				weight = ((x * r1.getReview())*5)*2;
+				}else{
+					weight = (x * r1.getReview())*5;
+				}
 				
+				total = total+ weight;
 			}else{
 				if ((x >= 4.0) && (x < 5.0) ){
-					weight = ((x * r1.getReview())*4);
+					if (r1.getDistance() == 1){
+						weight = ((x * r1.getReview())*4)*2;
+					}else{
+					weight = ((x * r1.getReview())*4);}
 					total = total+ weight;
 				} else {		
 					if ((x >= 3.0) && (x < 4.0) ){
-						weight = ((x * r1.getReview())*3);
+						if (r1.getDistance() == 1){ weight = ((x * r1.getReview())*3)*2;}
+						else{
+							weight = ((x * r1.getReview())*3);
+						}
 						total = total+ weight;
 					}
 					else { 
 						if ((x >= 2.0) && (x < 3.0) ){
-							weight = ((x * r1.getReview())*2);	
+							if (r1.getDistance() == 1){weight = ((x * r1.getReview())*2)*2;}
+							else{
+								weight = ((x * r1.getReview())*2);
+							}	
 							total = total+ weight;
 						}
 						else 
 						{
-							weight = x * r1.getReview();
+							if (r1.getDistance() == 1) {weight = (x * r1.getReview())*2;}
+							else {
+								weight = x * r1.getReview();
+							}
+							
 							total = total+ weight;
 						}
 						
