@@ -20,43 +20,59 @@ public class RankByTrustLevel implements Ranking{
 			double total = 0.0;
 			double weight = 0.0;
 			for (Review r1 : review){
-			double x = r1.getTrustLevel();
-			if (x == 5.0){
+			double TrustLevel = r1.getTrustLevel();
+			if (TrustLevel == 5.0){
 				if (r1.getDistance() == 1){
-				weight = ((x * r1.getReview())*5)*2;
-				}else{
-					weight = (x * r1.getReview())*5;
+				weight = ((TrustLevel * r1.getReview())*5)*3;
+				}else if (r1.getDistance() == 2){
+					weight = ((TrustLevel * r1.getReview())*5)*2;
+				}else {
+					
+					weight = (TrustLevel * r1.getReview())*5;
 				}
 				
 				total = total+ weight;
 			}else{
-				if ((x >= 4.0) && (x < 5.0) ){
+				if ((TrustLevel >= 4.0) && (TrustLevel < 5.0) ){
 					if (r1.getDistance() == 1){
-						weight = ((x * r1.getReview())*4)*2;
-					}else{
-					weight = ((x * r1.getReview())*4);}
-					total = total+ weight;
-				} else {		
-					if ((x >= 3.0) && (x < 4.0) ){
-						if (r1.getDistance() == 1){ weight = ((x * r1.getReview())*3)*2;}
-						else{
-							weight = ((x * r1.getReview())*3);
+						weight = ((TrustLevel * r1.getReview())*4)*3;
+						}else if (r1.getDistance() == 2){
+							weight = ((TrustLevel * r1.getReview())*4)*2;
+						}else {
+							
+							weight = (TrustLevel * r1.getReview())*4;
 						}
+						
+						total = total+ weight;
+				} else {		
+					if ((TrustLevel >= 3.0) && (TrustLevel < 4.0) ){
+						if (r1.getDistance() == 1){
+							weight = ((TrustLevel * r1.getReview())*3)*3;
+							}else if (r1.getDistance() == 2){
+								weight = ((TrustLevel * r1.getReview())*3)*2;
+							}else {
+								
+								weight = (TrustLevel * r1.getReview())*3;
+							}
 						total = total+ weight;
 					}
 					else { 
-						if ((x >= 2.0) && (x < 3.0) ){
-							if (r1.getDistance() == 1){weight = ((x * r1.getReview())*2)*2;}
-							else{
-								weight = ((x * r1.getReview())*2);
-							}	
+						if ((TrustLevel >= 2.0) && (TrustLevel < 3.0) ){
+							if (r1.getDistance() == 1){
+								weight = ((TrustLevel * r1.getReview())*2)*3;
+								}else if (r1.getDistance() == 2){
+									weight = ((TrustLevel * r1.getReview())*2)*2;
+								}else {
+									
+									weight = (TrustLevel * r1.getReview())*2;
+								}
 							total = total+ weight;
 						}
 						else 
 						{
-							if (r1.getDistance() == 1) {weight = (x * r1.getReview())*2;}
+							if (r1.getDistance() == 1) {weight = (TrustLevel * r1.getReview())*2;}
 							else {
-								weight = x * r1.getReview();
+								weight = TrustLevel * r1.getReview();
 							}
 							
 							total = total+ weight;

@@ -1,6 +1,4 @@
 import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -9,7 +7,7 @@ import java.util.List;
 public class ReadCSV {
 	
 public List<Product> Readcsv (int i )throws IOException{
-	BufferedReader reader = new BufferedReader(new FileReader("dataset.csv"));
+	BufferedReader reader = new BufferedReader(new FileReader("data.csv"));
 	List <Product> prodp = new ArrayList<Product>();
 	String line = reader.readLine();
 	getfriends cf = new getfriends();
@@ -57,4 +55,5 @@ public List<Product> Readcsv (int i )throws IOException{
 		}
 		return s; 
  }
+ 
 }

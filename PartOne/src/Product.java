@@ -72,7 +72,7 @@ public void setReviews(List<Review> reviews) {
 public String toString (){
 			
 	return "Product [Id= "+ id + ",Name=" + Name + ",Price =" + price + ", Samrt Rating=" +
-SmartRating + ",Quality ="+ Quality +", Stars:"+ Stars +"Numberof Reviews=" + NumberOfReviews + "]";
+SmartRating + ",Quality ="+ Quality +", Stars="+ Stars +", Numberof Reviews=" + NumberOfReviews + "]";
 }
 
 

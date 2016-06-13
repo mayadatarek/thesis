@@ -27,5 +27,8 @@ public double getDistance() {
 public void setDistance(double distance) {
 	this.distance = distance;
 }
+public String toString() {
+    return "Friend [id=" + id + ", trustlevel=" + trustlevel + ", distance=" + distance + "]";
+}
 }
 
